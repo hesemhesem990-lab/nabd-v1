@@ -12,7 +12,11 @@ class NabdApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'نَبْض',
-      theme: ThemeData.dark(useMaterial3: true, fontFamily: 'Tahoma'),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        useMaterial3: true,
+        fontFamily: 'Tahoma',
+      ),
       home: const MainScreen(),
     );
   }
@@ -42,7 +46,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
       bottomNavigationBar: NavigationBar(
         backgroundColor: const Color(0xFF1E293B),
-        indicatorColor: const Color(0xFF10B981).withOpacity(0.2),
+        indicatorColor: Color(0xFF10B981), // لون التحديد
         selectedIndex: _currentIndex,
         onDestinationSelected: (index) => setState(() => _currentIndex = index),
         destinations: const [
